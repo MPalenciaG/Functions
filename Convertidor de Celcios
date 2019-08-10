@@ -1,0 +1,40 @@
+/*Programa para convertir grados Celcius a Farenheit o Kelvin
+Celcius a Fahrenheit F=(9*C)/5+32
+Celcius Kelvin K=C+273.15 */
+
+#include<stdio.h>
+void menu();
+
+int main(){
+    printf("Convertidor de Celcios a Kelvin y Fahrenheit\n");
+    menu();
+    return 0;
+}
+void menu(){
+    int opc;
+    do{
+        printf("1. Concertir a Fahrenheit\n");
+        printf("2. Convertir a Kelvin\n");
+        printf("3. SALIR\n");
+        scanf("%i",&opc);
+        switch(opc){
+            case 1: Fahrenheit(); break;
+            case 2: Kelvin(); break;
+        }
+        }while(opc!=3);
+        printf("Gracias por usar el convertidor de grados.\n");
+    }
+void Fahrenheit(){
+    float C,F=0;
+    printf("Grados a convertir: ");
+    scanf("%f",&C);
+    F=(9*C)/5+32;
+    printf("%.2f grados Fahrenheit\n",F);
+}
+void Kelvin(){
+    float C,K=0;
+    printf("Grados a convertir: ");
+    scanf("%f",&C);
+    K=C+273.15;
+    printf("%.2f Kelvin\n",K);
+}
