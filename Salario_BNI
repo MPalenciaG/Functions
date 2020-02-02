@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<conio.h>
+
+float SalB(int h, int p); //declarar funciones en encabezado
+float SalN(float pt);
+
+main(){
+    int hrs, dph; //variables
+    float pt, pf, imp;
+    do{
+        scanf("%d",&hrs);
+        scanf("%d",&dph);
+    }while(hrs>55); // bucle para verificar exceso de horas
+    pt=SalB(hrs,dph);//funcion slario bruto
+    pf=SalN(pt);//funcion salario neto
+    imp=pt-pf;
+    printf("El salario bruto es %.2f, el impuesto es %.2f, y el salario neto es %.2f",pt,imp,pf);
+    getch();
+}
+
+float SalB( int h, int p){
+    if(h<=40){ //menos de 40 hrs se pagan normal
+        return (h*p);
+    }else{
+        return ((40*p)+(h-40)*(1.5*p));//mas de 40hr, las primeras 40 normal, las remanentes 50% mas (1.5)
+        }
+}
+
+float SalN(float pt){
+    return (pt*.85);//pago final =100%-15%
+}
